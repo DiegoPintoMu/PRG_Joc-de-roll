@@ -68,10 +68,10 @@ public class Player {
 	protected void hit (int attackPoints){
 
 		// INFO ATAQUE
-		System.out.print(this.getName() + " és colpejat amb " + attackPoints +
-				" punts i es defén amb" + this.getDefensePoints() +
+		System.out.println(this.getName() + " és colpejat amb " + attackPoints +
+				" punts i es defén amb " + this.getDefensePoints() +
 				". Vides: " + this.getLife() + " - " +
-				(attackPoints - this.getDefensePoints()));
+				(attackPoints - this.getDefensePoints()) + " =");
 
 		// EJECUCION ATAQUE
 		this.life -= attackPoints - this.getDefensePoints();
@@ -82,7 +82,7 @@ public class Player {
 		}
 
 		// INFO ATAQUE (Vida restante)
-		System.out.print(" = " + this.getLife());
+		System.out.println("	" + this.getLife());
 	}
 
 }
