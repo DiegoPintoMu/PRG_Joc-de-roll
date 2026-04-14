@@ -38,29 +38,29 @@ public class Player {
 	}
 
 
-	public void attack (Player p) {
+	public void attack (Player attacker) {
 
 		// INFO JUGADORES
 		System.out.println("// ABANS DE L'ATAC:");
 		System.out.println("Atacant: " + this.toString());
-		System.out.println("Atacat: " + p.toString());
+		System.out.println("Atacat: " + attacker.toString());
 
 		// INICIO ATAQUES
 		System.out.println("//	ATAC:");
 
-		p.hit(this.getAttackPoints());
+		attacker.hit(this.getAttackPoints());
 
 
 		// contraataque (si "p" sigue vivo)
-		if (p.getLife() > 0) {
-			this.hit(p.getAttackPoints());
+		if (attacker.getLife() > 0) {
+			this.hit(attacker.getAttackPoints());
 		}
 
 
 		// RESULTADO
 		System.out.println("//	DESPRÉS DE L'ATAC");
 		System.out.println("Atacant: " + this.toString());
-		System.out.println("Atacat: " + p.toString());
+		System.out.println("Atacat: " + attacker.toString());
 	}
 
 
