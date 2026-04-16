@@ -20,22 +20,24 @@ public class Alien extends Player {
 		if (this.getLife() > 20) {
 			String res = "\n-- EMBOIG DE L'ALIEN --\n" +
 					"	-> " + this.getName() +
-					" PA: " + this.getAttackPoints() + "+3 = ";
+					" PA:" + this.getAttackPoints() + " + 3 = ";
 
-			this.setAttackPoints(this.getAttackPoints() + 3);
+			this.setAttackPoints(this.getAttackPoints() + 3); // PA + 3 <---
 
 			res+= getAttackPoints() + " / " +
-					"PD: " + this.getDefensePoints() + "-3 = ";
+					"PD:" + this.getDefensePoints() + " - 3 = ";
 
 			if (getDefensePoints() > 0) {
-				this.setDefensePoints(this.getDefensePoints() - 3);
-			}
-			else if (getDefensePoints() < 0) {
-				this.setDefensePoints(0);
+				this.setDefensePoints(this.getDefensePoints() - 3); // PD - 3 <---
+
+				if (getDefensePoints() < 0) {
+					this.setDefensePoints(0);
+				}
 			}
 
-			res+= getDefensePoints();
-			System.out.println(res);
+
+
+			System.out.println(res + getDefensePoints());
 		}
 		// -----------------------------------------------------
 

@@ -6,6 +6,8 @@ import joc.Warrior;
 
 public class JocDeRol {
 
+	// PRUEBAS --------------------------------------------
+
 	public static void provaFaseV2() {
 
 		Human Freeman = new Human(8,2,32,"Gordon Freeman");
@@ -20,9 +22,31 @@ public class JocDeRol {
 
 	}
 
+	public static void provaFaseV3() {
+
+		Human Luffy = new Human(9,2,125,"Monkey D. Luffy");
+
+		Warrior Zoro = new Warrior(12,5,75,"Roronoa Zoro");
+
+		Alien Ace = new Alien(3,8,55,"Portogas D. Ace");
+
+		Luffy.attack(Zoro);
+		Ace.attack(Luffy);
+		Ace.attack(Zoro);
+		Zoro.attack(Ace);
+		Ace.attack(Zoro);
+		Luffy.attack(Ace);
+		Ace.attack(Luffy);
+
+	}
+
+
+	// MAIN --------------------------------------------
+
 	public static void main(String[] args) {
 
-		provaFaseV2();
+		// provaFaseV2();
+		provaFaseV3();
 
 	}
 }

@@ -49,12 +49,12 @@ public class Player {
 	public void attack (Player attacked) {
 
 		// INFO JUGADORES
-		System.out.println("// ABANS DE L'ATAC:");
+		System.out.println("\n// ABANS DE L'ATAC:");
 		System.out.println("Atacant: " + this.toString());
 		System.out.println("Atacat: " + attacked.toString());
 
 		// INICIO ATAQUES
-		System.out.println("//	ATAC:");
+		System.out.println("\n// ATAC:");
 
 		attacked.hit(this.getAttackPoints());
 
@@ -64,7 +64,7 @@ public class Player {
 		}
 
 		// RESULTADO
-		System.out.println("//	DESPRÉS DE L'ATAC");
+		System.out.println("\n// DESPRÉS DE L'ATAC");
 		System.out.println("Atacant: " + this.toString());
 		System.out.println("Atacat: " + attacked.toString());
 	}

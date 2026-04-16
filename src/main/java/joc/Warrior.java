@@ -24,22 +24,21 @@ public class Warrior extends Human {
 			System.out.println("\n-- AGUILITAT DEL GUERRER --");
 			System.out.println("	-> L'atac no és suficientment potent com per a ferir al guerrer");
 
-			hitPoints = 0;
+		} else {
+
+			System.out.println("Vides: " + this.getLife() + " - " + hitPoints + " =");
+
+
+			// EJECUCION ATAQUE
+			this.setLife(this.getLife() - hitPoints);
+
+			// vida no puede ser menor de 0
+			if (this.getLife() < 0) {
+				this.setLife(0);
+			}
+
+			// INFO ATAQUE (Vida restante)
+			System.out.println("	" + this.getLife());
 		}
-		// --------------------------------------------------
-
-		System.out.println("Vides: " + this.getLife() + " - " + hitPoints + " =");
-
-
-		// EJECUCION ATAQUE
-		this.setLife(this.getLife() - hitPoints);
-
-		// vida no puede ser menor de 0
-		if (this.getLife() < 0) {
-			this.setLife(0);
-		}
-
-		// INFO ATAQUE (Vida restante)
-		System.out.println("	" + this.getLife());
 	}
 }
