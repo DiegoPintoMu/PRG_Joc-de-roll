@@ -58,12 +58,10 @@ public class Player {
 
 		attacked.hit(this.getAttackPoints());
 
-
 		// contraataque (si "attacked" sigue vivo)
 		if (attacked.getLife() > 0) {
 			this.hit(attacked.getAttackPoints());
 		}
-
 
 		// RESULTADO
 		System.out.println("//	DESPRÉS DE L'ATAC");
@@ -75,19 +73,21 @@ public class Player {
 
 	protected void hit (int attackPoints){
 
+		//daño real tras recibir el ataque
+		int hitPoints = attackPoints - this.getDefensePoints();
+
 		// INFO ATAQUE
 		System.out.println(this.getName() +
 				" és colpejat amb " + attackPoints +
 				" punts i es defén amb " + this.getDefensePoints() +
-				". Vides: " + this.getLife() + " - " +
-				(attackPoints - this.getDefensePoints()) + " =");
+				". Vides: " + this.getLife() + " - " + hitPoints + " =");
 
 		// EJECUCION ATAQUE
-		this.life -= attackPoints - this.getDefensePoints();
+		this.setLife(this.getLife() - hitPoints);
 
 		// vida no puede ser menor de 0
 		if (this.getLife() < 0) {
-			this.life = 0;
+			this.setLife(0);
 		}
 
 		// INFO ATAQUE (Vida restante)
