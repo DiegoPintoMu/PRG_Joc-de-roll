@@ -26,6 +26,14 @@ public class Player {
 
 	public String getName() { return name; }
 
+	// SETTERS -----------------------
+
+	public void setAttackPoints(int attackPoints) { this.attackPoints = attackPoints; }
+
+	public void setDefensePoints(int defensePoints) { this.defensePoints = defensePoints; }
+
+	public void setLife(int life) { this.life = life; }
+
 
 	// FUNCIONES -----------------------
 
@@ -51,7 +59,7 @@ public class Player {
 		attacked.hit(this.getAttackPoints());
 
 
-		// contraataque (si "p" sigue vivo)
+		// contraataque (si "attacked" sigue vivo)
 		if (attacked.getLife() > 0) {
 			this.hit(attacked.getAttackPoints());
 		}
@@ -68,7 +76,8 @@ public class Player {
 	protected void hit (int attackPoints){
 
 		// INFO ATAQUE
-		System.out.println(this.getName() + " és colpejat amb " + attackPoints +
+		System.out.println(this.getName() +
+				" és colpejat amb " + attackPoints +
 				" punts i es defén amb " + this.getDefensePoints() +
 				". Vides: " + this.getLife() + " - " +
 				(attackPoints - this.getDefensePoints()) + " =");
