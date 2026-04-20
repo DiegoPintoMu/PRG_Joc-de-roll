@@ -2,6 +2,7 @@ package inici;
 
 import joc.Alien;
 import joc.Human;
+import joc.Team;
 import joc.Warrior;
 
 public class JocDeRol {
@@ -37,11 +38,26 @@ public class JocDeRol {
 		Ace.attack(Zoro);
 		Luffy.attack(Ace);
 		Ace.attack(Luffy);
-
 	}
 
 	public static void provaFaseV4() {
 
+		Human reigen = new Human(9,2,125,"Arataka Reigen");
+
+		Warrior mob = new Warrior(12,5,75,"Shigeo Kageyama");
+
+		Alien hoyuelo = new Alien(3,8,55,"Hoyuelo");
+
+		Team poison = new Team("White T Poison");
+		Team garra = new Team("Organizacion garra");
+
+		mob.add(poison);
+		hoyuelo.add(poison);
+		reigen.add(poison);
+		reigen.add(garra);
+
+		System.out.println(poison.toString());
+		System.out.println(garra.toString());
 
 	}
 

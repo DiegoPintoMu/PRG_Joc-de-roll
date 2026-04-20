@@ -1,11 +1,14 @@
 package joc;
 
+import java.util.ArrayList;
+
 public class Player {
 
 	private String name;
 	private int attackPoints;
 	private int defensePoints;
 	private int life;
+	private ArrayList<Team> teams;
 
 	// CONSTRUCTOR -----------------------
 
@@ -14,6 +17,7 @@ public class Player {
 		this.defensePoints = defensePoints;
 		this.life = life;
 		this.name = name;
+		teams = new ArrayList<>();
 	}
 
 	// GETTERS -----------------------
@@ -25,6 +29,8 @@ public class Player {
 	public int getLife() { return life; }
 
 	public String getName() { return name; }
+
+	public ArrayList<Team> getTeams() { return teams; }
 
 	// SETTERS -----------------------
 
@@ -39,12 +45,18 @@ public class Player {
 
 	@Override
 	public String toString() {
-		return this.getName() +
+		String res = this.getName() +
 				" PA:" + this.getAttackPoints() +
 				" / PD:" + this.getDefensePoints() +
-				" / PV:" + this.getLife();
+				" / PV:" + this.getLife() +
+				" (pertany a " + this.getTeams().size() + " equip";
+		if  (this.getTeams().size() != 1) { res += "s"; }
+
+		return res + ")";
 	}
 
+
+		// ------------- combat ------------- \\
 
 	public void attack (Player attacked) {
 
@@ -70,7 +82,6 @@ public class Player {
 	}
 
 
-
 	protected void hit (int attackPoints){
 
 		//daño real tras recibir el ataque
@@ -92,6 +103,34 @@ public class Player {
 
 		// INFO ATAQUE (Vida restante)
 		System.out.println("	" + this.getLife());
+	}
+
+
+		// ------------- team ------------- \\
+
+	public void add(Team t) {
+		this.teams.add(t);
+
+		if (!t.getMembers().contains(this)) {
+			t.add(this);
+		}
+		System.out.println(this.getName() +" ara forma part de l'equip '"+ t.getName() +"'"); // TEMPORAL
+	}
+
+	public void remove(Team t) {
+		this.teams.remove(t);
+
+		if (t.getMembers().contains(this)) {
+			t.remove(this);
+		}
+		System.out.println(this.getName() +" ja no forma part de l'equip '"+ t.getName() +"'"); // TEMPORAL
+	}
+
+	public boolean equals(Player p) {
+		if (this == p) {
+			return true;
+		}
+		return false;
 	}
 
 }
