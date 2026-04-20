@@ -10,28 +10,48 @@ public class Team {
 
 	public Team(String name) {
 		this.name = name;
-		players = new ArrayList<Player>();
+		players = new ArrayList<>();
 	}
+
+	// GETTERS -----------------------
+
+	public String getName() { return name; }
+
 
 	// FUNCIONES -----------------------
 
 	@Override
 	public String toString() {
-		int teamCount = 0;
-		String res = "Equip " + this.name + " :";
+		String res = "Equip " + this.getName() + " :";
 
-		for (Player p : players) {
-			res += "\n" + players.get(i).toString() ;
-
+		for (Player p : this.players) {
+			res += "\n	" + p.toString();
 		}
-
 		return res;
 	}
 
-	@Override
-	public boolean equals(Object obj) {
+	public ArrayList<Player> getMembers() {
+		ArrayList<Player> members = new ArrayList<>();
 
+		for (int i = 0; i < players.size(); i++) {
+			members.add(players.get(i));
+		}
+		return members;
 	}
 
+	public void add(Player p) {
+		this.players.add(p);
+	}
 
+	public void remove(Player p) {
+		this.players.remove(p);
+	}
+
+	public boolean equals(Player p) {
+		if (p.getName().equals(this.getName())) {
+			return true;
+		} else  {
+			return false;
+		}
+	}
 }
