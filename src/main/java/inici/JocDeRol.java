@@ -40,13 +40,19 @@ public class JocDeRol {
 
 	}
 
+	public static void provaFaseV4() {
+
+
+	}
+
 
 	// MAIN --------------------------------------------
 
 	public static void main(String[] args) {
 
 		// provaFaseV2();
-		provaFaseV3();
+		// provaFaseV3();
+		provaFaseV4();
 
 	}
 }
