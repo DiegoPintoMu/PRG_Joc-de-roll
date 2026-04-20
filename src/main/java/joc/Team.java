@@ -40,18 +40,27 @@ public class Team {
 	}
 
 	public void add(Player p) {
-		this.players.add(p);
+		if (!this.players.contains(p)) {
+			this.players.add(p);
+		}
+		if (!p.getTeams().contains(this)) {
+			p.add(this);
+		}
 	}
 
 	public void remove(Player p) {
-		this.players.remove(p);
+		if (this.players.contains(p)) {
+			this.players.remove(p);
+		}
+		if (p.getTeams().contains(this)) {
+			p.remove(this);
+		}
 	}
 
-	public boolean equals(Player p) {
-		if (p.getName().equals(this.getName())) {
+	public boolean equals(Team t) {
+		if (this == t) {
 			return true;
-		} else  {
-			return false;
 		}
+		return false;
 	}
 }

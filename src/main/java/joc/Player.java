@@ -109,21 +109,21 @@ public class Player {
 		// ------------- team ------------- \\
 
 	public void add(Team t) {
-		this.teams.add(t);
-
+		if (!this.teams.contains(t)) {
+			this.teams.add(t);
+		}
 		if (!t.getMembers().contains(this)) {
 			t.add(this);
 		}
-		System.out.println(this.getName() +" ara forma part de l'equip '"+ t.getName() +"'"); // TEMPORAL
 	}
 
 	public void remove(Team t) {
-		this.teams.remove(t);
-
+		if (this.teams.contains(t)) {
+			this.teams.remove(t);
+		}
 		if (t.getMembers().contains(this)) {
 			t.remove(this);
 		}
-		System.out.println(this.getName() +" ja no forma part de l'equip '"+ t.getName() +"'"); // TEMPORAL
 	}
 
 	public boolean equals(Player p) {
